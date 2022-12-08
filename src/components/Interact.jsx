@@ -13,6 +13,15 @@ function Interact() {
     nameRef.current.focus();
   };
 
+  const increase = () => dispatch({type: 'INCREASE'})
+  const decrease = () => dispatch({type: 'DECREASE'})
+  const addToList = (e) => {
+    e.preventDefault()
+    dispatch({type: 'ADDTOLIST', payload: itemRef.current.value})
+    itemRef.current.value = ''
+    itemRef.current.focus()
+  }
+
   return (
     <div className="card">
       <h2>Interact</h2>
@@ -21,13 +30,13 @@ function Interact() {
         <input type="text" ref={nameRef} />
         <button>Change it!</button>
       </form>
-      <form>
+      <form onSubmit={addToList}>
         <h3>Add to list</h3>
         <input type="text" ref={itemRef} />
         <button>Add!</button>
       </form>
-      <button>Up Count</button>
-      <button>Down Count</button>
+      <button onClick={increase}>Up Count</button>
+      <button onClick={decrease}>Down Count</button>
     </div>
   );
 }
