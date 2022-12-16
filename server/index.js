@@ -1,15 +1,24 @@
-//All the imports are at the top
+//!All the imports are at the top
 const express = require('express')
 const cors = require('cors')
+const db = require('./util/database')
+const {User, Product, Cart} = require('./util/models')
 
 const server = express()
 
-//Middleware
+//!Middleware
 server.use(express.json())
 server.use(cors())
 
-//Endpoints
+//!Associations
+User.hasMany(Cart)
+Cart.belongsTo(User)
 
+Product.hasMany(Cart)
+Cart.belongsTo(Product)
 
-//Listen statement
+//!Endpoints
+
+db.sync()
+//!Listen statement
 server.listen(4000, () => console.log("Server runs on 4000"))
