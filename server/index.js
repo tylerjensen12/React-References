@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./util/database");
 const { User, Product, Cart } = require("./util/models");
+const seed = require('./util/seed')
 
 const server = express();
 
@@ -38,6 +39,9 @@ server.get('/api/user/:id', async(req, res) => {
     }
 })
 
-db.sync();
+db
+  .sync()
+  // .sync({force: true})
+  // .then(() => seed())
 //!Listen statement
 server.listen(4000, () => console.log("Server runs on 4000"));

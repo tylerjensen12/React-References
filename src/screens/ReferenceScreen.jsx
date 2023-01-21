@@ -4,6 +4,7 @@ import EffectComponent from "../components/EffectComponent";
 import RefComponent from "../components/RefComponent";
 import ContextComponent from "../components/ContextComponent";
 import Interact from "../components/Interact";
+import ReduxComp from "../components/ReduxComp";
 
 function ReferenceScreen() {
   return (
@@ -14,6 +15,7 @@ function ReferenceScreen() {
       <RefComponent />
       <ContextComponent />
       <Interact />
+      <ReduxComp />
     </div>
   );
 }

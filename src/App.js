@@ -9,11 +9,10 @@ function App() {
   return (
     <div className="App col-container">
       <Header />
-      
       <Routes>
-        <Route path="/" element={<HomeScreen/>} />
-        <Route path="/details/:id" element={<DetailScreen/>} />
-        <Route path="/reference" element={<ReferenceScreen/>} />
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/details/:id" element={<DetailScreen />} />
+        <Route path="/reference" element={<ReferenceScreen />} />
       </Routes>
     </div>
   );
